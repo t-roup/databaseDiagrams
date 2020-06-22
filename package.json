@@ -1,0 +1,43 @@
+{
+    "name": "database-diagrams",
+    "displayName": "Database Diagrams",
+    "description": "database diagrams",
+    "version": "0.0.1",
+    "publisher": "microsoft",
+    "engines": {
+        "vscode": "^1.46.0",
+        "azdata": "*"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*",
+        "onCommand:extension.getDatabases"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.getDatabases",
+                "title": "List Databases in the server"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install && node ./node_modules/azdata/bin/install",
+        "test": "yarn run compile && node ./node_modules/vscode/bin/test",
+        "proposedapi": "node installTypings.js"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "azdata": "1.0.0",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
